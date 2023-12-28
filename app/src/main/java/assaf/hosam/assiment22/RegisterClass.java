@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +32,10 @@ public class RegisterClass extends AppCompatActivity {
     private EditText phoneNumber_;
     private EditText confirm_password;
     private TextView error;
+    SharedPreferences preferences ;
+
+    SharedPreferences.Editor editor ;
+    Gson gson=new Gson();
     private static final String firstName = "First Name";
     private static final String lastName = "Last Name";
     private static final String email = "Email";
@@ -39,7 +46,8 @@ public class RegisterClass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
-
+        preferences = getSharedPreferences("DATA", MODE_PRIVATE);
+        editor = preferences.edit();
         signUp = findViewById(R.id.signIn);
         first_name = findViewById(R.id.email1);
         last_name = findViewById(R.id.lastName2);
@@ -62,8 +70,6 @@ public class RegisterClass extends AppCompatActivity {
         String firstNameValue = first_name.getText().toString();
         String lastNameValue = last_name.getText().toString();
         String emailValue = email_.getText().toString();
-        String phoneValue = phoneNumber_.getText().toString();
-
         String passwordValue = password_.getText().toString();
         String confirmPasswordValue = confirm_password.getText().toString();
 
@@ -73,6 +79,16 @@ public class RegisterClass extends AppCompatActivity {
         } else if (!passwordValue.equals(confirmPasswordValue)) {
             error.setText("Passwords do not match");
         } else {
+            if(preferences.getString(emailValue,null)==null) {
+               Email email=new Email( emailValue,  passwordValue,  firstNameValue,  lastNameValue);
+                String emailobj= gson.toJson(email);
+                  editor.putString(emailValue,emailobj);
+                  editor.commit();
+                Toast.makeText(this, "New Account Created!", Toast.LENGTH_SHORT).show();
+
+            }else{
+                Toast.makeText(this, "This Account Already Exist", Toast.LENGTH_SHORT).show();
+            }
 
 
 
