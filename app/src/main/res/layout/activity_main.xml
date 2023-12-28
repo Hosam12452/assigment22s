@@ -1,44 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8CA68A">
 
+    <Spinner
+        android:id="@+id/countryspinner"
+        android:layout_width="297dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="617dp"
+        android:background="@drawable/spinnerxml" />
+
+    <TextView
+        android:id="@+id/population"
+        android:layout_width="170dp"
+        android:layout_height="81dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="454dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="196dp"
+        android:background="@drawable/populationtext" />
+
     <Button
         android:id="@+id/show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="115dp"
+        android:layout_marginEnd="114dp"
+        android:layout_marginBottom="135dp"
         android:background="@drawable/buttonxml"
-        android:onClick="log2"
-        android:text="Show Population"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        android:text="Show Population" />
 
-    <Spinner
-        android:id="@+id/countryspinner"
-        android:layout_width="352dp"
-        android:layout_height="39dp"
-        android:background="@drawable/spinnerxml"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.124" />
+    <Button
+        android:id="@+id/percantage"
+        android:layout_width="112dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="143dp"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/buttonxml"
+        android:text="per%" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="297dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="141dp"
+        android:layout_marginEnd="77dp" />
 
     <TextView
-        android:id="@+id/population"
-        android:layout_width="187dp"
-        android:layout_height="126dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.476" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="676dp" />
+</RelativeLayout>

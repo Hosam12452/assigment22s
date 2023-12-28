@@ -54,14 +54,14 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                    //  go to MainActivity
+                    //  go to LogIN activity
                     Intent intent = new Intent(SplashScreen.this, LogIn.class);
                     startActivity(intent);
 
 
                 finish();
             }
-        }, 5000);
+        }, 3000);
 
 
 

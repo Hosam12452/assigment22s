@@ -25,6 +25,7 @@ public class LogIn extends AppCompatActivity {
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
    private Gson gson =new Gson();
+   CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,27 @@ public class LogIn extends AppCompatActivity {
         signUp = findViewById(R.id.signUpBtn);
         email_ = findViewById(R.id.email1);
         password_ = findViewById(R.id.password);
+        checkBox=findViewById(R.id.chkRemember);
         prefs = getSharedPreferences("DATA", MODE_PRIVATE);
         editor = prefs.edit();
-
     }
+    @Override
+    protected void onStop() {
+        if(checkBox.isChecked()){
+            editor.putString("ch",email_.getText().toString());
+            editor.commit();
+        }
+        super.onStop();
+    }
+
+    @Override
+    protected void onStart() {
+        if(prefs.getString("ch",null)!=null){
+            email_.setText(prefs.getString("ch",null));
+        }
+        super.onStart();
+    }
+
     public void signIn(View view) {
         String email = email_.getText().toString();
         String password = password_.getText().toString();
