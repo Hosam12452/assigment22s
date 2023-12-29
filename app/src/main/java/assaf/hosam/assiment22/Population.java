@@ -176,7 +176,7 @@ private JSONArray jsonArray;
     protected void onStart() {
         Intent intent=getIntent();
         String username=intent.getStringExtra("firstName");
-        usertxt.append("UserName: "+username);
+        usertxt.append("Welcome "+username);
         super.onStart();
     }
 
