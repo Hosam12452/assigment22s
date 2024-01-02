@@ -66,6 +66,8 @@ public class RegisterClass extends AppCompatActivity {
         finish();
     }
 
+
+
     public void signUp(View view) {
         String firstNameValue = first_name.getText().toString();
         String lastNameValue = last_name.getText().toString();

@@ -43,6 +43,8 @@ public class LogIn extends AppCompatActivity {
     protected void onStop() {
         if(checkBox.isChecked()){
             editor.putString("ch",email_.getText().toString());
+            editor.putString("psr",password_.getText().toString());
+
             editor.commit();
         }
         super.onStop();
@@ -52,6 +54,7 @@ public class LogIn extends AppCompatActivity {
     protected void onStart() {
         if(prefs.getString("ch",null)!=null){
             email_.setText(prefs.getString("ch",null));
+            password_.setText(prefs.getString("psr",null));
         }
         super.onStart();
     }
